@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>P2E Games</title>
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/1465/1465677.png">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAP LINK -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- ROBOTO SLAB -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
+    <!-- font-family: 'Noto Sans Mono', monospace; -->
+
+
+</head>
+<style type="text/css">
+    body {
+        background-color: #E6E6E6;
+    }
+
+    .title {
+
+        font-family: 'Roboto Slab', serif
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    .flex-item {
+        flex-grow: 8;
+        margin-top: 15px;
+        border: 0.01em ridge black;
+    }
+
+    .teamDiv {
+        border-radius: 3px;
+        background: #EDD83D;
+        box-shadow: 5px 5px 10px #242323,
+            -5px -5px 10px #EBEBD3;
+    }
+
+    h4 {
+        color: black;
+        font-size: 15px;
+        font-family: 'Noto Sans JP', sans-serif;
+    }
+
+
+    /*SEARCH BAR*/
+
+    .box {
+
+        width: 900px;
+        height: 40px;
+        background-color: white;
+        border: 0.001em solid black;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+
+    }
+
+    .box>i {
+
+        font-size: 20px;
+        color: black;
+
+
+    }
+
+    .box>input {
+
+        flex: 1;
+        height: 40px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        padding-left: 10px;
+
+    }
+
+    a, a:hover {
+        text-decoration: none;
+        color: #E6E6E6;
+    }
+    tr {
+        margin-top: 40px;
+        margin-bottom: 70px;
+    }
+</style>
+
+<body>
+
+    <h1 class="text-center pt-2 mt-5 title">PLAY TO EARN GAMES</h1>
+    <!-- Search and add button -->
+    <div class="container pt-3 mt-5">
+        <div class="row">
+            <div class="col input-group">
+                <div class="col box">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="search" name="search">
+
+                </div>
+
+                <div class="ml-2 mr-3">
+                    <button type="button" class="btn btn-md btn-success"> <a href="{% url 'blog:add-blog' %}"> Add Blog
+                        </a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- list of p2e games -->
+    
+    <div class="container flex-container mt-4">  
+        {% for blog in blogs %}  
+        <div class="flex-item teamDiv mr-3 p-3">
+           
+           <!-- Game name -->
+           <h4 class="text-center">{{ blog.name }}</h4>
+           <h6 class="text-center"> - {{ blog.author }}</h6>
+           <a href="{% url 'blog:view-blog' blog.id %}" class="btn btn-primary ">View</a>
+           <a href="{% url 'blog:update-blog' blog.id %}" class="btn btn-success ">Update</a>
+           <a href="{% url 'blog:delete-blog' blog.id %}" class="btn btn-danger ">Delete</a>
+       
+
+       </div>
+       {% empty %} 
+            <h4 class="text-center">NO BLOGS YET.</h4>
+        {% endfor %}
+    </div> 
+   
+
+
+    <!-- <table class="container mt-4">
+
+        <tr>
+            <td class="teamDiv p-3">
+                {% for blog in blogs %}
+                <h4 class="text-center">{{ blog.name }}</h4>
+                <h4 class="text-justify">{{ blog.content }}</h4>
+
+                <div class="btn-group btn-group-md">
+                   
+                </div>
+                {% empty %}
+
+                <h4 class="text-center">No blogs yet.</h4>
+
+                {% endfor %}
+            </td>
+        </tr> <br>
+    </table> -->
+
+</body>
+
+</html>

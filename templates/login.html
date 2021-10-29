@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>P2E Games</title>
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/1465/1465677.png">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAP LINK -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- ROBOTO SLAB -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <!-- font-family: 'Inter', sans-serif; -->
+
+
+</head>
+<style type="text/css">
+    body {
+        background-color: #E6E6E6;
+    }
+
+    .title {
+
+        font-family: 'Roboto Slab', serif
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    .flex-item {
+        flex-grow: 8;
+        margin-top: 15px;
+        border: 0.01em ridge black;
+    }
+
+    .teamDiv {
+        border-radius: 3px;
+        background: #EDD83D;
+        box-shadow: 5px 5px 10px #242323,
+            -5px -5px 10px #EBEBD3;
+    }
+
+    h4 {
+        color: black;
+        font-size: 15px;
+        font-family: 'Noto Sans JP', sans-serif;
+    }
+
+
+    /*SEARCH BAR*/
+
+    .box {
+
+        width: 900px;
+        height: 40px;
+        background-color: white;
+        border: 0.001em solid black;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+
+    }
+
+    .box>i {
+
+        font-size: 20px;
+        color: black;
+
+
+    }
+
+    .box>input {
+
+        flex: 1;
+        height: 40px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        padding-left: 10px;
+
+    }
+
+    /*Comments CSS */
+
+    .comment {
+        background-color: #EFF1F3;
+        border: 1px solid black;
+    }
+
+    .commentBox {
+        border: 1px solid black;
+        background: #F8F1FF;
+        box-shadow: 5px 5px 34px #78828d;
+    }
+
+    .commentText {
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: left;
+
+    }
+
+    .home {
+        background-color: white;
+        width: 70px;
+        border: 1px solid black;
+        border-radius: 50%;
+        padding: 5px;
+        margin-left: 40px;
+        margin-bottom: 30px;
+
+    }
+
+    /*Login Box*/
+    .loginBox {
+
+        display: block;
+
+        border: 1px solid black;
+        background: #EFF1F3;
+        box-shadow: 20px 20px 35px #7f8081,
+            -20px -20px 35px #ffffff;
+
+        margin: 130px 250px;
+
+    }
+    
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="loginBox">
+            <div class="row p-3 mt-4">
+                <div class="col text-center">
+                    <img
+                        src="data:image/png;base64,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" />
+                </div>
+            </div>
+
+            <form>
+                <div class="form-group row pl-5 pr-5 pb-5 mt-4">
+
+                    <div class="col-sm-11 ml-4">
+                        <input type="email" class="form-control form-control-lg" id="colFormLabelLg"
+                            placeholder="Email">
+                    </div>
+
+                    <div class="col-sm-11 ml-4 mt-3">
+                        <input type="password" class="form-control form-control-lg" id="colFormLabelLg"
+                            placeholder="Password">
+                    </div>
+                    
+                    <div style="border-top: 1px solid black;  " class="col-sm-11  ml-4 mt-3 pt-3 ">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+
+                    </div>
+
+
+
+                </div>
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>

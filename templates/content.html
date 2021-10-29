@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- Created by CodingLab |www.youtube.com/CodingLabYT-->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>P2E Games</title>
+    <link rel="icon" href="https://image.flaticon.com/icons/png/512/1465/1465677.png">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    <!-- BOOTSTRAP LINK -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- ROBOTO SLAB -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Roboto+Slab&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <!-- font-family: 'Inter', sans-serif; -->
+
+
+</head>
+<style type="text/css">
+    body {
+        background-color: #E6E6E6;
+    }
+
+    .title {
+
+        font-family: 'Roboto Slab', serif
+    }
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+
+    .flex-item {
+        flex-grow: 8;
+        margin-top: 15px;
+        border: 0.01em ridge black;
+    }
+
+    .teamDiv {
+        border-radius: 3px;
+        background: #EDD83D;
+        box-shadow: 5px 5px 10px #242323,
+            -5px -5px 10px #EBEBD3;
+    }
+
+    h4 {
+        color: black;
+        font-size: 15px;
+        font-family: 'Noto Sans JP', sans-serif;
+    }
+
+
+    /*SEARCH BAR*/
+
+    .box {
+
+        width: 900px;
+        height: 40px;
+        background-color: white;
+        border: 0.001em solid black;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+
+    }
+
+    .box>i {
+
+        font-size: 20px;
+        color: black;
+
+
+    }
+
+    .box>input {
+
+        flex: 1;
+        height: 40px;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        padding-left: 10px;
+
+    }
+
+    /*Comments CSS */
+
+    .comment {
+        background-color: #EFF1F3;
+        border: 1px solid black;
+    }
+
+    .commentBox {
+        border: 1px solid black;
+        background: #F8F1FF;
+        box-shadow: 5px 5px 34px #78828d;
+    }
+
+    .commentText {
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+    }
+
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: left;
+
+    }
+
+    .home {
+        background-color: white;
+        width: 70px;
+        border: 1px solid black;
+        border-radius: 50%;
+        padding: 5px;
+        margin-left: 40px;
+        margin-bottom: 30px;
+
+    }
+</style>
+
+<body>
+
+    <div class="bg-white container p-5  pt-2 mt-5">
+        {% for blog in blogs %}
+        <!-- P2E Game Title -->
+        <h1 class="text-center title">{{ blog.name }}</h1>
+
+            <div class="text-justify col ">
+                {{ blog.content}}
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Comments and Suggestion -->
+    <div class="comment container p-5 mt-5">
+        <!-- P2E Game Title -->
+        <h1 class="text-center title mt-2">Comment</h1>
+        <br>
+        <div class=" row pl-5 pr-5 mt-3">
+            <div class="commentBox text-justify col p-4">
+                <div class="row">
+                    <!-- Users Icon -->
+                    <div class="col-2">
+                        <div class="text-center">.
+                            <img
+                                src="data:image/png;base64,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" />
+                        </div>
+                    </div>
+                    <div class="col commentText"> {{ blog.comment}} </div>
+                </div>
+                <!-- Delete icon -->
+                
+            
+                    <!-- Edit icon -->
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        
+
+        </div>
+    </div>
+    <br>
+
+    <div class="footer">
+        <a href="{% url 'blog:index'%}" target="_self"><img src="https://cdn-icons-png.flaticon.com/512/93/93634.png"
+                class="home"></a>
+    </div>
+
+
+
+
+    {% endfor %}
+
+
+</body>
+
+</html>

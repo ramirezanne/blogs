@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	</head>
+    <title>Update</title>
+	<style type="text/css">
+	body {
+        background-color: #E6E6E6;
+    }
+
+	</style>
+	<body>
+		<div class="bg-white container p-5  pt-2 mt-5">
+			<!-- Title -->
+			<h1 class="text-center title">Blog - Update blog</h1>
+			<div class="row mt-5">
+				<div class="text-justify col ">
+					<form role="form" action="" method="POST">
+						{% csrf_token %} 
+						<table class="table table-bordered table-striped">
+							<tbody>
+								<tr>
+									<th>Name</th>
+									<th>{{ blog_form.name }}</th>
+								</tr>
+								<tr>
+									<th>Content</th>
+									<th>{{ blog_form.content }}</th>
+								</tr>
+                                <tr>
+									<th>Author</th>
+									<th>{{ blog_form.author }}</th>
+								</tr>
+							</tbody>
+						</table>
+						<button type="submit" class="btn btn-success">Save</button>
+					</form>
+				</div>	
+			</div>
+		</div>
+	</body>
+</html>
